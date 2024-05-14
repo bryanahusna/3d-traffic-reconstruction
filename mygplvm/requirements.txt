@@ -1,0 +1,8 @@
+PyOpenGL
+PyOpenGL_accelerate
+numpy
+pyrr
+Pillow
+glfw
+mesh-to-sdf==0.0.13
+scikit-learn

@@ -1,0 +1,263 @@
+# Blender 4.0.1 MTL File: '2005 toyota - Salin.blend'
+# www.blender.org
+
+newmtl BrakeCaliper1Mtl.001
+Ns 255.000015
+Ka 1.000000 1.000000 1.000000
+Ks 0.666667 0.666667 0.666667
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd D:/Bryan/TA/6 Reconstruction/models/Downloads/BrakeCaliper1_diff.png
+map_d D:/Bryan/TA/6 Reconstruction/models/Downloads/BrakeCaliper1_diff.png
+
+newmtl BrakeDisc1Mtl.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.062745 0.062745 0.062745
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd D:/Bryan/TA/6 Reconstruction/models/Downloads/BrakeCaliper1_diff.png
+map_d D:/Bryan/TA/6 Reconstruction/models/Downloads/BrakeCaliper1_diff.png
+
+newmtl Default1Mtl
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.021046 0.021046 0.021046
+Ks 0.001024 0.001024 0.001024
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Doorlrok0181Mtl.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.373615 0.368591 0.383775
+Ks 0.023550 0.023550 0.023550
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Fog1Mtl.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.798736 0.798736 0.798736
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd D:/Bryan/TA/6 Reconstruction/models/Downloads/Fog1_diff.png
+map_d D:/Bryan/TA/6 Reconstruction/models/Downloads/Fog1_diff.png
+map_Bump -bm 1.000000 D:/Bryan/TA/6 Reconstruction/models/Downloads/Fog1_nmap.png
+
+newmtl Handle1Mtl.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.062745 0.062745 0.062745
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd D:/Bryan/TA/6 Reconstruction/models/Downloads/Handle1_diff.png
+map_d D:/Bryan/TA/6 Reconstruction/models/Downloads/Handle1_diff.png
+
+newmtl Interior1Mtl.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.062745 0.062745 0.062745
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd D:/Bryan/TA/6 Reconstruction/models/Downloads/Interior1_diff.png
+map_d D:/Bryan/TA/6 Reconstruction/models/Downloads/Interior1_diff.png
+
+newmtl Kaca0041Mtl.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.002586 0.002586 0.002586
+Ks 0.001024 0.001024 0.001024
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Lampubelakang0011Mtl.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.062745 0.062745 0.062745
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd D:/Bryan/TA/6 Reconstruction/models/Downloads/Lampubelakang0011_diff.png
+map_d D:/Bryan/TA/6 Reconstruction/models/Downloads/Lampubelakang0011_diff.png
+
+newmtl Leftfloormat1Mtl.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.027451 0.027451 0.027451
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd D:/Bryan/TA/6 Reconstruction/models/Downloads/Leftfloormat1_diff.png
+map_d D:/Bryan/TA/6 Reconstruction/models/Downloads/Leftfloormat1_diff.png
+
+newmtl Ln1Mtl.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.180144 0.000000 0.000000
+Ks 0.023784 0.023784 0.023784
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl MeshesintIon1Mtl.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.062745 0.062745 0.062745
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd D:/Bryan/TA/6 Reconstruction/models/Downloads/MeshesintIon1_diff.png
+map_d D:/Bryan/TA/6 Reconstruction/models/Downloads/MeshesintIon1_diff.png
+
+newmtl Meshpart1Mtl.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.396078 0.396078 0.396078
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd D:/Bryan/TA/6 Reconstruction/models/Downloads/Meshpart1_diff.png
+map_d D:/Bryan/TA/6 Reconstruction/models/Downloads/Meshpart1_diff.png
+
+newmtl Mirror2Mtl.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.002586 0.002586 0.002586
+Ks 0.000162 0.000162 0.000162
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Paint1Mtl.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.017629 0.017629 0.017629
+Ks 0.000223 0.000223 0.000223
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Paint1Mtl.003
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.017629 0.017629 0.017629
+Ks 0.000223 0.000223 0.000223
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Rightfloormat1Mtl.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.027451 0.027451 0.027451
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd D:/Bryan/TA/6 Reconstruction/models/Downloads/Rightfloormat1_diff.png
+map_d D:/Bryan/TA/6 Reconstruction/models/Downloads/Rightfloormat1_diff.png
+
+newmtl Rims3Mtl
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.031373 0.031373 0.031373
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd D:/Bryan/TA/6 Reconstruction/models/Downloads/Rims2_diff.png
+map_d D:/Bryan/TA/6 Reconstruction/models/Downloads/Rims2_diff.png
+
+newmtl Rims3Mtl.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.031373 0.031373 0.031373
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd D:/Bryan/TA/6 Reconstruction/models/Downloads/Rims2_diff.png
+map_d D:/Bryan/TA/6 Reconstruction/models/Downloads/Rims2_diff.png
+
+newmtl Rims3Mtl.002
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.031373 0.031373 0.031373
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd D:/Bryan/TA/6 Reconstruction/models/Downloads/Rims2_diff.png
+map_d D:/Bryan/TA/6 Reconstruction/models/Downloads/Rims2_diff.png
+
+newmtl Rims3Mtl.003
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.031373 0.031373 0.031373
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd D:/Bryan/TA/6 Reconstruction/models/Downloads/Rims2_diff.png
+map_d D:/Bryan/TA/6 Reconstruction/models/Downloads/Rims2_diff.png
+
+newmtl RoofRail1Mtl.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.062745 0.062745 0.062745
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd D:/Bryan/TA/6 Reconstruction/models/Downloads/RoofRail1_diff.png
+map_d D:/Bryan/TA/6 Reconstruction/models/Downloads/RoofRail1_diff.png
+
+newmtl SonyXavax50001Mtl.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd D:/Bryan/TA/6 Reconstruction/models/Downloads/SonyXavax50001_diff.png
+map_d D:/Bryan/TA/6 Reconstruction/models/Downloads/SonyXavax50001_diff.png
+
+newmtl TireRing171Mtl.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.039216 0.039216 0.039216
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd D:/Bryan/TA/6 Reconstruction/models/Downloads/TireRing171_diff.png
+map_d D:/Bryan/TA/6 Reconstruction/models/Downloads/TireRing171_diff.png
+
+newmtl Trims1Mtl.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.062745 0.062745 0.062745
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd D:/Bryan/TA/6 Reconstruction/models/Downloads/Trims1_diff.png
+map_d D:/Bryan/TA/6 Reconstruction/models/Downloads/Trims1_diff.png
+
+newmtl UnderChrome1Mtl.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.373615 0.368591 0.383775
+Ks 0.148659 0.148659 0.148659
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2

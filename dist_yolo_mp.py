@@ -15,7 +15,7 @@ def process_video_multiprocessing(group_number, frame_jump_unit, file_name):
     from dist_yolo.dist_yolo import DistYOLO
     # Load DistYOLO
     dist_yolo = DistYOLO()
-    dist_yolo.load_model('./dist_yolo/trained_final (1).h5')
+    dist_yolo.load_model('./dist_yolo/trained_final (3).h5')
 
     # Read video file
     cap = cv2.VideoCapture(file_name)
@@ -141,8 +141,7 @@ def multi_process():
     print("FPS : {}".format(frame_count/total_processing_time))
 
 if __name__ == '__main__':
-    file_name = "video/video1.mp4"
-    output_file_name = "output.mp4"
+    file_name = "video/video3.mp4"
     # width, height, frame_count = get_video_frame_details(file_name)
 
     cap = cv2.VideoCapture(file_name)

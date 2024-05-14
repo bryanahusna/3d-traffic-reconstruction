@@ -1,0 +1,34 @@
+3D voxelization:
+Preprocess:
+0. find bounding box
+	cara: mencari minimum dan maximum vertex coordinates
+    Bounding box: Lx, Ly, Lz
+    Target resolution: Rx, Ry, Rz
+    Physical size: cellx, celly, cellz (celli = Li/Ri)
+1. subdivide dengan octree, flag voxel f(i,j,k) =
+    a. -1, jika voxel di luar surface
+    b. 0, jika voxel di surface
+    c. 1, jika voxel di dalam surface
+2. Linear octree hanya menyimpan leaf nodes, termasuk posisi, magnitude, dll.
+    Misal resolusi yang diinginkan: 2^n x 2^n x 2^n
+    Voxel codes: Mq = q1q2...qlql+1...qn
+    lth level node: q1q2...qlFF...F
+    Node octree linear disimpan dalam list, dengan urutan code
+	Hubungan antar-node direpresentasikan dnegan kode tersebut
+	    Misal: Brother node memiliki prefix yang sama
+    Kode voxel: 	ql = 4wl + 2vl + ul, (wl,vl,ul element 0 atau 1, alias kode binary)
+    Koordinat voxel:
+	i = u1 x 2^n-1 + u2 x 2^n-2 + ... + ul x 2^n-l
+	j = (mirip i, u digantikan v)
+	k = (mirip i, u digantikan w)
+3. Octree structure
+    typedef struct structOctree {
+	char* codestr;
+	unsigned char flag;
+	struct structoctree *child[8]
+    } OCTREE;
+    Initially, semua node flag = -1
+
+Voxelization:
+1. 
+    
