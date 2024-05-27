@@ -136,7 +136,7 @@ def multi_process():
     print("FPS : {}".format(frame_count/total_processing_time))
 
 if __name__ == '__main__':
-    video_name = 'video1'
+    video_name = 'video0'
     file_name = f"video/{video_name}.mp4"
     # width, height, frame_count = get_video_frame_details(file_name)
 
