@@ -12,7 +12,7 @@ from ultralytics import YOLO
 
 # Process video image detection
 def process_video_multiprocessing(group_number, frame_jump_unit, file_name, video_name):
-    model = YOLO("yolov9c.pt").to('cpu')
+    model = YOLO("yolov9c.pt").to('cuda:0')
 
     # Read video file
     cap = cv2.VideoCapture(file_name)
