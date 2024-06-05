@@ -1,0 +1,60 @@
+dataset:
+  name: cub_200
+  img_size: 64
+model:
+  name: unicorn
+  encoder:
+    shared: False
+  mesh:
+    init: ellipse
+    scale: 0.6
+    use_mean_txt: True
+    deform_fields:
+      powers: [2, 8, 64]
+      milestones: [4000, 8000, 12000]
+    texture_uv:
+      img_size: 64
+      min_features: 64
+      powers: [2, 8, 64, 512]
+      milestones: [0, 4000, 8000, 12000]
+  background:
+    min_features: 64
+    powers: [4, 8, 64, 256]
+    milestones: [0, 4000, 8000, 12000]
+  renderer:
+    cameras:
+      name: fov
+      fov: 30
+  rend_predictor:
+    alternate_optim: True
+    azim_range: [0, 360]
+    elev_range: [-10, 30]
+    roll_range: [-30, 30]
+    T_range: [0.3, 0.3, 0.3]
+    scale_range: [0.3, 0.3, 0.3]
+  milestones:
+    freeze_T_predictor: 10
+    freeze_shape: 20
+    freeze_scale_predictor: 1200
+    mean_txt: 12000
+  loss:
+    name: mse
+    rgb_weight: 1
+    perceptual_weight: 10
+    laplacian_weight: 0.01
+    normal_weight: 0.01
+    uniform_weight: 0.02
+    swap_weight: 1
+training:
+  batch_size: 32
+  n_workers: 4
+  optimizer:
+    name: adam
+    lr: 1.0e-4
+  n_epoches: 16000
+  save_epoches: [4000, 8000, 12000]
+  train_stat_interval: 2000
+  val_stat_interval: 4000
+  seed: 924674
+  visualizer_port:
+  resume:
