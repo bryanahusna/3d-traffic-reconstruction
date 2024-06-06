@@ -5,7 +5,7 @@ import torch
 from torch import nn
 from .tools import (Identity, conv1x1, conv3x3, create_mlp, N_UNITS, N_LAYERS, create_upsample_layer,
                     kaiming_weights_init)
-from utils.logger import print_log
+from src.utils.logger import print_log
 
 
 def get_generator(name):

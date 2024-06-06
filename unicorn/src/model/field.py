@@ -5,7 +5,7 @@ import torch
 from torch import nn
 
 from .tools import N_UNITS, N_LAYERS, create_mlp, kaiming_weights_init
-from utils.logger import print_log
+from src.utils.logger import print_log
 
 
 class Field(nn.Module):

@@ -18,12 +18,12 @@ from .loss import get_loss
 from .renderer import Renderer, save_mesh_as_gif
 from .tools import create_mlp, init_rotations, convert_3d_to_uv_coordinates, safe_model_state_dict, N_UNITS, N_LAYERS
 from .tools import azim_to_rotation_matrix, elev_to_rotation_matrix, roll_to_rotation_matrix, cpu_angle_between
-from utils import path_mkdir, use_seed
-from utils.image import convert_to_img
-from utils.logger import print_warning
-from utils.mesh import save_mesh_as_obj, repeat, get_icosphere, normal_consistency, normalize
-from utils.metrics import MeshEvaluator, ProxyEvaluator
-from utils.pytorch import torch_to
+from src.utils import path_mkdir, use_seed
+from src.utils.image import convert_to_img
+from src.utils.logger import print_warning
+from src.utils.mesh import save_mesh_as_obj, repeat, get_icosphere, normal_consistency, normalize
+from src.utils.metrics import MeshEvaluator, ProxyEvaluator
+from src.utils.pytorch import torch_to
 
 
 # POSE & SCALE DEFAULT

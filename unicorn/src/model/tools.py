@@ -7,7 +7,7 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
-from utils.logger import print_log
+from src.utils.logger import print_log
 
 
 N_UNITS = 128

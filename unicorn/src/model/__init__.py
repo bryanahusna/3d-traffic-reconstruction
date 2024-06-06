@@ -2,8 +2,8 @@ import torch
 
 from .unicorn import Unicorn
 from .tools import count_parameters
-from utils.logger import print_log
-from utils import path_exists
+from src.utils.logger import print_log
+from src.utils import path_exists
 
 
 IMG_SIZE = (64, 64)

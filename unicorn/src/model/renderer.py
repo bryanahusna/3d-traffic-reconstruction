@@ -1,3 +1,4 @@
+import sys
 from copy import deepcopy
 
 import numpy as np
@@ -13,8 +14,8 @@ from pytorch3d.renderer.mesh.shading import phong_shading, flat_shading, gouraud
 from pytorch3d.structures import Meshes
 
 from .pytorch3d_monkey import AmbientLights
-from utils.image import save_gif
-from utils.pytorch import get_torch_device
+from src.utils.image import save_gif
+from src.utils.pytorch import get_torch_device
 
 
 LAYERED_SHADER = True
