@@ -1,0 +1,88 @@
+16:05 - 17:20
+13:57 - 14:30
+
+
+
+Measurement dist-yolo = [x1 y1 x2 y2 yaw class_idx]
+	Koordinat dari kiri atas
+Measurement z = [x y z yaw area ratio]
+State x = [x y z yaw area ratio vx vy vz vyaw varea]
+F = [
+[1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+[0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0],
+[0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
+[0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+[0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
+]
+H = [
+[1, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 1, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 1, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 1, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 1, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 1, 0, 0, 0],
+]
+	xc = xp - middle_screen_x
+	x = xc * d / c
+	yc = full_screen_y - yc (atau 0 karena semua kendaraan pasti tepat di atas tanah)
+	y = 0
+	z = d
+
+VERSI 2: YOLOV9
+VERSI 3: YOLOV9+YAEN (Yaw estimation)
+Measurement input = [x1 y1 x2 y2 class_idx yaw]
+	Koordinat dari kiri atas
+Measurement z = [x y z yaw area ratio]
+State x = [x y z yaw area ratio vx vy vz vyaw varea]
+	  [0 1 2 3   4    5     6  7  8  9    10]
+F = [
+[1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+[0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0],
+[0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
+[0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+[0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
+]
+H = [
+[1, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 1, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 1, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 1, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 1, 0, 0, 0, 0],
+[0, 0, 0, 0, 1, 0, 0, 0, 0],
+]
+    
+
+Ada sekumpulan objek dan probationary objek
+	objs = list({})
+	prob_objs = list({})
+Tiap objek memiliki Kalman tracking
+	obj.track = Kalman([x y z yaw area ratio])
+Ada deteksi
+	detections = list([u v area ratio])
+Hungarian algorithm objek
+	predict tiap objek
+	matrix(detections/objs)
+	assign detections ke objs
+Hungarian algorithm probationary objek
+	predict tiap objek
+	matrix(detections/objs)
+	assign detections ke objs
+
+Untuk tiap obj di objs
+	Jika ada detection baru, update
+	Jika tidak, tambah TLost. Jika TLost > 1, hapus dari objs.
+Untuk tiap obj di prob_objs
+	Jika ada detection baru, update
+		Jika n_evidence > threshold, pindahkan ke objs
+	Jika tidak, tambah TLost. Jika TLost > 1, hapus dari prob_objs.

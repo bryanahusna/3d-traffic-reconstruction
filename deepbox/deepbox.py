@@ -50,7 +50,7 @@ class Deepbox:
             patch = patch - np.array([[[103.939, 116.779, 123.68]]])
             patch = np.expand_dims(patch, 0)
 
-            prediction = self.model.predict(patch)
+            prediction = self.model.predict(patch, verbose=0)
 
             # compute dims
             dims = dims_avg[cls_to_ind[cls]] + prediction[0][0]
