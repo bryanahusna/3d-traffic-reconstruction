@@ -14,7 +14,7 @@ os.environ["CUDA_VISIBLE_DEVICES"]="0"
 calib_file = 'D:/Bryan/TA/10 Vehicle Rotation/cersar_3d_detection/3D_detection-master/testing/calib.txt'
 box2d_dir = 'D:/Bryan/TA/10 Vehicle Rotation/cersar_3d_detection/3D_detection-master/testing/label_2/'
 
-classes = ['car','van','truck','pedestrian','person_sitting','cyclist','tram']
+classes = ['car','van','truck','bus','pedestrian','person_sitting','cyclist','tram']
 cls_to_ind = {cls:i for i,cls in enumerate(classes)}
 
 dims_avg = np.loadtxt(r'./deepbox/dataset/voc_dims.txt',delimiter=',')
