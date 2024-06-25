@@ -44,7 +44,8 @@ class Reconstruction3:
         maximum_polygon = segmented.masks[maximum_idx]
 
         cv_image = cv2.cvtColor(cv_image, cv2.COLOR_BGR2GRAY)
-        resized_img = make_square(cv_image)
+        resized_img = make_square(maximum_mask)
+        cv2.imwrite('reconstruction3_1.png', resized_img)
 
         r = pyrender.OffscreenRenderer(256, 256)
         camera_pose = np.array([
@@ -87,10 +88,11 @@ class Reconstruction3:
                     scene.add(pl, pose=light_pose)
                     scene.add(pc, pose=camera_pose)
                     color, _ = r.render(scene)
+                    cv2.imwrite('reconstruction3.png', color)
                     
-                    rendered_occupancy = np.any(color != 255, axis=2)
+                    rendered_occupancy = np.any(color != 255, axis=2) * 255
                     
-                    energy = np.sum(resized_img * rendered_occupancy - rendered_occupancy * (255 - resized_img))
+                    energy = np.sum(resized_img & rendered_occupancy) / np.sum(resized_img | rendered_occupancy)
                     energies.append(energy)
                     latent_variables.append(x)
                     # energies.append({ 'x': x, 'energy': energy})

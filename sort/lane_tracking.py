@@ -113,7 +113,7 @@ class KalmanLaneTracker(object):
 
     # measurement noise
     # self.kf.R[4:,4:] *= 10.
-    self.kf.R = np.diag([225, 225, 225, 225])
+    self.kf.R = np.diag([1000, 1000, 1000, 1000])
 
     # initial state
     self.kf.x[:4] = convert_bbox_to_z(bbox)

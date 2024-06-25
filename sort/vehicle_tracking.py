@@ -16,7 +16,7 @@ from filterpy.kalman import KalmanFilter
 np.random.seed(0)
 
 class SortVehicle(object):
-  def __init__(self, max_age=1, min_hits=3, iou_threshold=0.3, zc=300):
+  def __init__(self, max_age=1, min_hits=3, iou_threshold=0.3, zc=300, offset_x=0):
     """
     Sets key parameters for SORT
     """
@@ -24,6 +24,7 @@ class SortVehicle(object):
     self.min_hits = min_hits
     self.iou_threshold = iou_threshold
     self.zc = zc
+    self.offset_x = offset_x
     self.trackers = []
     self.frame_count = 0
 
@@ -58,7 +59,7 @@ class SortVehicle(object):
 
     # create and initialise new trackers for unmatched detections
     for i in unmatched_dets:
-        trk = KalmanVehicleTracker(dets[i,:], zc=self.zc)
+        trk = KalmanVehicleTracker(dets[i,:], zc=self.zc, offset_x=self.offset_x)
         self.trackers.append(trk)
 
     i = len(self.trackers)
@@ -81,13 +82,14 @@ class KalmanVehicleTracker(object):
   This class represents the internal state of individual tracked objects observed as bbox.
   """
   count = 0
-  def __init__(self,bbox, zc=300, img_shape=(1280,720)):
+  def __init__(self,bbox, zc, offset_x, img_shape=(1280,720)):
     """
     Initialises a tracker using initial bounding box.
     """
     #define constant velocity model
     self.zc = zc
     self.img_shape = img_shape
+    self.offset_x = offset_x
 
     self.kf = KalmanFilter(dim_x=11, dim_z=6)
     # [x, y, z, yaw, area, ratio, vx, vy, vz, vyaw, varea]
@@ -126,7 +128,7 @@ class KalmanVehicleTracker(object):
     self.kf.R = np.diag([10, 100, 25, 30000, 100, 10])
 
     # initial state
-    self.kf.x[:6] = convert_bbox_to_z(bbox, zc=self.zc, img_shape=self.img_shape)
+    self.kf.x[:6] = convert_bbox_to_z(bbox, zc=self.zc, img_shape=self.img_shape, offset_x=self.offset_x)
 
     self.time_since_update = 0
     self.id = KalmanVehicleTracker.count
@@ -144,7 +146,7 @@ class KalmanVehicleTracker(object):
     self.history = []
     self.hits += 1
     self.hit_streak += 1
-    self.kf.update(convert_bbox_to_z(bbox, zc=self.zc, img_shape=self.img_shape))
+    self.kf.update(convert_bbox_to_z(bbox, zc=self.zc, img_shape=self.img_shape, offset_x=self.offset_x))
 
   def predict(self):
     """
@@ -157,14 +159,14 @@ class KalmanVehicleTracker(object):
     # if(self.time_since_update>0):
     #   self.hit_streak = 0
     self.time_since_update += 1
-    self.history.append(convert_x_to_bbox(self.kf.x, zc=self.zc, img_shape=self.img_shape))
+    self.history.append(convert_x_to_bbox(self.kf.x, zc=self.zc, img_shape=self.img_shape, offset_x=self.offset_x))
     return self.history[-1]
 
   def get_state(self):
     """
     Returns the current bounding box estimate.
     """
-    return convert_x_to_bbox(self.kf.x, zc=self.zc, img_shape=self.img_shape)
+    return convert_x_to_bbox(self.kf.x, zc=self.zc, img_shape=self.img_shape, offset_x=self.offset_x)
 
 
 def associate_detections_to_trackers(detections,trackers,iou_threshold = 0.3):
@@ -242,7 +244,7 @@ def iou_batch(bb_test, bb_gt):
   return(o)  
 
 
-def convert_bbox_to_z(bbox, zc, img_shape):
+def convert_bbox_to_z(bbox, zc, img_shape, offset_x):
   """
   Takes a bounding box in the form [x1,y1,x2,y2,yaw], zc (camera constant), and img_shape (w,h), and returns z in the form
     [x,y,z,yaw,s,r] where x,y,z is the position of the object, yaw is the orientation angle, s is the scale/area, and r is ratio
@@ -250,7 +252,7 @@ def convert_bbox_to_z(bbox, zc, img_shape):
   """
   w = bbox[2] - bbox[0]
   h = bbox[3] - bbox[1]
-  xc = bbox[0] + w/2. - img_shape[0]/2
+  xc = bbox[0] + w/2. - img_shape[0]/2 + offset_x
   yc = bbox[1] + h/2.
   d = 1.5 * (np.sqrt(zc**2 + (img_shape[1]/2 - yc)**2)) / h
 
@@ -264,7 +266,7 @@ def convert_bbox_to_z(bbox, zc, img_shape):
   return np.array([x, y, z, yaw, s, r]).reshape((6, 1))
 
 
-def convert_x_to_bbox(x, zc, img_shape, score=None):
+def convert_x_to_bbox(x, zc, img_shape, offset_x, score=None):
   """
   Takes a bounding box in the centre form [x,y,z,yaw,s,r] and returns it in the form
     [x1,y1,x2,y2,yaw,d] where x1,y1 is the top left and x2,y2 is the bottom right
@@ -273,7 +275,7 @@ def convert_x_to_bbox(x, zc, img_shape, score=None):
   h = x[4] / w
   # TODO: compute y1 y2 (currently it is 0)
   d = np.sqrt(x[0] ** 2 + x[2] ** 2)
-  xc = img_shape[0]/2 + zc * np.tan(np.arcsin(x[0] / d))
+  xc = img_shape[0]/2 + zc * np.tan(np.arcsin(x[0] / d)) - offset_x
   yc = x[1]
   yaw = x[3]
 
